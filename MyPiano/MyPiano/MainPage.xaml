@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="MyPiano.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyPiano"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:Name="gridMain" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel x:Name="stackSounds" Orientation="Horizontal">
+            <Button Content="Bright Piano" x:Name="btnBrightPiano"/>
+            <Button Content="Electric Piano" x:Name="btnElectricPiano"/>
+            <Button Content="Grand Piano" x:Name="btnGrandPiano"/>
+            <Button Content="Rhodes" x:Name="btnRhodes"/>
+        </StackPanel>
+    </Grid>
+</Page>

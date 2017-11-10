@@ -1,0 +1,561 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{A661B5E9-0D54-46CE-905D-80D4AAA9E5F2}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyPiano</RootNamespace>
+    <AssemblyName>MyPiano</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.15063.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
+    <PackageCertificateKeyFile>MyPiano_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BrushManager.cs" />
+    <Compile Include="Controls\KeyLabel.cs" />
+    <Compile Include="Controls\PianoKey.xaml.cs">
+      <DependentUpon>PianoKey.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PianoKeyCode.cs" />
+    <Compile Include="Controls\PianoKeys.xaml.cs">
+      <DependentUpon>PianoKeys.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HslColor.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Audio\AudioSample.cs" />
+    <Compile Include="Audio\SampleManager.cs" />
+    <Compile Include="Audio\SoundEffect.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="MyPiano_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Instruments\BrightPiano\A0.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\A1.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\A2.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\A3.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\A4.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\A5.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\A6.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\A7.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\A8.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\As0.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\As1.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\As2.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\As3.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\As4.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\As5.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\As6.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\As7.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\As8.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\B0.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\B1.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\B2.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\B3.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\B4.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\B5.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\B6.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\B7.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\C1.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\C2.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\C3.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\C4.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\C5.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\C6.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\C7.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\C8.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Cs1.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Cs2.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Cs3.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Cs4.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Cs5.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Cs6.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Cs7.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Cs8.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\D1.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\D2.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\D3.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\D4.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\D5.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\D6.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\D7.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\D8.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Ds1.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Ds2.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Ds3.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Ds4.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Ds5.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Ds6.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Ds7.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Ds8.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\E1.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\E2.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\E3.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\E4.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\E5.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\E6.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\E7.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\E8.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\F1.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\F2.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\F3.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\F4.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\F5.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\F6.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\F7.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\F8.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Fs1.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Fs2.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Fs3.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Fs4.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Fs5.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Fs6.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Fs7.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Fs8.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\G1.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\G2.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\G3.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\G4.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\G5.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\G6.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\G7.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\G8.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Gs1.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Gs2.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Gs3.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Gs4.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Gs5.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Gs6.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Gs7.wav" />
+    <Content Include="Assets\Instruments\BrightPiano\Gs8.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\A0.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\A1.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\A2.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\A3.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\A4.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\A5.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\A6.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\A7.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\A8.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\As0.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\As1.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\As2.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\As3.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\As4.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\As5.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\As6.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\As7.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\As8.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\B0.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\B1.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\B2.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\B3.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\B4.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\B5.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\B6.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\B7.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\C1.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\C2.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\C3.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\C4.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\C5.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\C6.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\C7.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\C8.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Cs1.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Cs2.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Cs3.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Cs4.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Cs5.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Cs6.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Cs7.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Cs8.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\D1.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\D2.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\D3.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\D4.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\D5.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\D6.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\D7.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\D8.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Ds1.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Ds2.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Ds3.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Ds4.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Ds5.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Ds6.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Ds7.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Ds8.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\E1.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\E2.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\E3.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\E4.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\E5.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\E6.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\E7.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\E8.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\F1.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\F2.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\F3.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\F4.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\F5.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\F6.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\F7.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\F8.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Fs1.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Fs2.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Fs3.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Fs4.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Fs5.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Fs6.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Fs7.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Fs8.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\G1.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\G2.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\G3.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\G4.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\G5.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\G6.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\G7.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\G8.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Gs1.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Gs2.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Gs3.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Gs4.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Gs5.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Gs6.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Gs7.wav" />
+    <Content Include="Assets\Instruments\ElectricPiano\Gs8.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\A0.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\A1.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\A2.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\A3.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\A4.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\A5.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\A6.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\A7.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\A8.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\As0.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\As1.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\As2.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\As3.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\As4.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\As5.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\As6.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\As7.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\As8.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\B0.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\B1.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\B2.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\B3.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\B4.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\B5.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\B6.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\B7.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\C1.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\C2.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\C3.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\C4.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\C5.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\C6.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\C7.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\C8.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Cs1.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Cs2.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Cs3.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Cs4.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Cs5.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Cs6.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Cs7.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Cs8.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\D1.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\D2.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\D3.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\D4.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\D5.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\D6.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\D7.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\D8.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Ds1.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Ds2.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Ds3.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Ds4.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Ds5.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Ds6.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Ds7.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Ds8.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\E1.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\E2.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\E3.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\E4.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\E5.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\E6.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\E7.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\E8.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\F1.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\F2.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\F3.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\F4.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\F5.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\F6.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\F7.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\F8.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Fs1.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Fs2.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Fs3.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Fs4.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Fs5.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Fs6.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Fs7.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Fs8.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\G1.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\G2.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\G3.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\G4.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\G5.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\G6.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\G7.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\G8.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Gs1.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Gs2.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Gs3.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Gs4.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Gs5.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Gs6.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Gs7.wav" />
+    <Content Include="Assets\Instruments\GrandPiano\Gs8.wav" />
+    <Content Include="Assets\Instruments\Rhodes\A0.wav" />
+    <Content Include="Assets\Instruments\Rhodes\A1.wav" />
+    <Content Include="Assets\Instruments\Rhodes\A2.wav" />
+    <Content Include="Assets\Instruments\Rhodes\A3.wav" />
+    <Content Include="Assets\Instruments\Rhodes\A4.wav" />
+    <Content Include="Assets\Instruments\Rhodes\A5.wav" />
+    <Content Include="Assets\Instruments\Rhodes\A6.wav" />
+    <Content Include="Assets\Instruments\Rhodes\A7.wav" />
+    <Content Include="Assets\Instruments\Rhodes\A8.wav" />
+    <Content Include="Assets\Instruments\Rhodes\As0.wav" />
+    <Content Include="Assets\Instruments\Rhodes\As1.wav" />
+    <Content Include="Assets\Instruments\Rhodes\As2.wav" />
+    <Content Include="Assets\Instruments\Rhodes\As3.wav" />
+    <Content Include="Assets\Instruments\Rhodes\As4.wav" />
+    <Content Include="Assets\Instruments\Rhodes\As5.wav" />
+    <Content Include="Assets\Instruments\Rhodes\As6.wav" />
+    <Content Include="Assets\Instruments\Rhodes\As7.wav" />
+    <Content Include="Assets\Instruments\Rhodes\As8.wav" />
+    <Content Include="Assets\Instruments\Rhodes\B0.wav" />
+    <Content Include="Assets\Instruments\Rhodes\B1.wav" />
+    <Content Include="Assets\Instruments\Rhodes\B2.wav" />
+    <Content Include="Assets\Instruments\Rhodes\B3.wav" />
+    <Content Include="Assets\Instruments\Rhodes\B4.wav" />
+    <Content Include="Assets\Instruments\Rhodes\B5.wav" />
+    <Content Include="Assets\Instruments\Rhodes\B6.wav" />
+    <Content Include="Assets\Instruments\Rhodes\B7.wav" />
+    <Content Include="Assets\Instruments\Rhodes\C1.wav" />
+    <Content Include="Assets\Instruments\Rhodes\C2.wav" />
+    <Content Include="Assets\Instruments\Rhodes\C3.wav" />
+    <Content Include="Assets\Instruments\Rhodes\C4.wav" />
+    <Content Include="Assets\Instruments\Rhodes\C5.wav" />
+    <Content Include="Assets\Instruments\Rhodes\C6.wav" />
+    <Content Include="Assets\Instruments\Rhodes\C7.wav" />
+    <Content Include="Assets\Instruments\Rhodes\C8.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Cs1.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Cs2.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Cs3.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Cs4.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Cs5.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Cs6.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Cs7.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Cs8.wav" />
+    <Content Include="Assets\Instruments\Rhodes\D1.wav" />
+    <Content Include="Assets\Instruments\Rhodes\D2.wav" />
+    <Content Include="Assets\Instruments\Rhodes\D3.wav" />
+    <Content Include="Assets\Instruments\Rhodes\D4.wav" />
+    <Content Include="Assets\Instruments\Rhodes\D5.wav" />
+    <Content Include="Assets\Instruments\Rhodes\D6.wav" />
+    <Content Include="Assets\Instruments\Rhodes\D7.wav" />
+    <Content Include="Assets\Instruments\Rhodes\D8.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Ds1.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Ds2.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Ds3.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Ds4.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Ds5.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Ds6.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Ds7.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Ds8.wav" />
+    <Content Include="Assets\Instruments\Rhodes\E1.wav" />
+    <Content Include="Assets\Instruments\Rhodes\E2.wav" />
+    <Content Include="Assets\Instruments\Rhodes\E3.wav" />
+    <Content Include="Assets\Instruments\Rhodes\E4.wav" />
+    <Content Include="Assets\Instruments\Rhodes\E5.wav" />
+    <Content Include="Assets\Instruments\Rhodes\E6.wav" />
+    <Content Include="Assets\Instruments\Rhodes\E7.wav" />
+    <Content Include="Assets\Instruments\Rhodes\E8.wav" />
+    <Content Include="Assets\Instruments\Rhodes\F1.wav" />
+    <Content Include="Assets\Instruments\Rhodes\F2.wav" />
+    <Content Include="Assets\Instruments\Rhodes\F3.wav" />
+    <Content Include="Assets\Instruments\Rhodes\F4.wav" />
+    <Content Include="Assets\Instruments\Rhodes\F5.wav" />
+    <Content Include="Assets\Instruments\Rhodes\F6.wav" />
+    <Content Include="Assets\Instruments\Rhodes\F7.wav" />
+    <Content Include="Assets\Instruments\Rhodes\F8.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Fs1.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Fs2.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Fs3.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Fs4.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Fs5.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Fs6.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Fs7.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Fs8.wav" />
+    <Content Include="Assets\Instruments\Rhodes\G1.wav" />
+    <Content Include="Assets\Instruments\Rhodes\G2.wav" />
+    <Content Include="Assets\Instruments\Rhodes\G3.wav" />
+    <Content Include="Assets\Instruments\Rhodes\G4.wav" />
+    <Content Include="Assets\Instruments\Rhodes\G5.wav" />
+    <Content Include="Assets\Instruments\Rhodes\G6.wav" />
+    <Content Include="Assets\Instruments\Rhodes\G7.wav" />
+    <Content Include="Assets\Instruments\Rhodes\G8.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Gs1.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Gs2.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Gs3.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Gs4.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Gs5.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Gs6.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Gs7.wav" />
+    <Content Include="Assets\Instruments\Rhodes\Gs8.wav" />
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Controls\PianoKey.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PianoKeys.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="SharpDX.XAudio2">
+      <Version>4.0.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
